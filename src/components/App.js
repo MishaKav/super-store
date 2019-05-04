@@ -2,7 +2,7 @@ import React from "react";
 import { Layout } from "antd";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
-import ProductsPage from "./Pages/ProductsPage";
+import ProductsPage from "./Products/ProductsPage";
 import Footer from "./Layout/Footer";
 import Header from "./Layout/Header";
 import Breadcrumbs from "./Layout/Breadcrumbs";
