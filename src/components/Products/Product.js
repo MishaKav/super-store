@@ -1,5 +1,6 @@
 import React from "react";
-import { Card,  Empty,  Statistic } from "antd";
+import { Card, Empty, Statistic } from "antd";
+import { Redirect, NavLink } from "react-router-dom";
 
 function Product(props) {
   const { productId, name, image, inStock, price, shortDescription } = props;
@@ -11,9 +12,10 @@ function Product(props) {
   return (
     <>
       <Card
+        hoverable
+        onClick={() => <Redirect to={`/products/${productId}`} />}
         title={name}
         cover={<img alt={name} src={image} />}
-        style={{ minHeight: 490 }}
         actions={[
           <Statistic
             title="Price"
@@ -23,6 +25,7 @@ function Product(props) {
           <Statistic title="Availbale" value={inStock} />
         ]}
       >
+        <NavLink to={`/products/${productId}`}>{name}</NavLink>
         <Card.Meta description={shortDescription} />
       </Card>
     </>

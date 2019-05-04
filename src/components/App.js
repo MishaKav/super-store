@@ -3,6 +3,7 @@ import { Layout } from "antd";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import ProductsPage from "./Products/ProductsPage";
+import ProductDetails from "./Products/ProductDetails";
 import Footer from "./Layout/Footer";
 import Header from "./Layout/Header";
 import Breadcrumbs from "./Layout/Breadcrumbs";
@@ -22,7 +23,8 @@ function App() {
         <Content className="content">
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/products" component={ProductsPage} />
+            <Route exact path="/products" component={ProductsPage} />
+            <Route path="/products/:productId" component={ProductDetails} />
           </Switch>
         </Content>
       </Content>

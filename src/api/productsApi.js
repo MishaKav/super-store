@@ -1,6 +1,21 @@
 import faker from "faker";
 import sleep from "await-sleep";
 
+const getProduct = id => {
+  const commerce = faker.commerce;
+
+  const [basicProduct] = getProducts(1);
+  const product = Object.assign({}, basicProduct);
+  product.images = [...Array(5)].map(() => {
+    return {
+      image: faker.image.image(),
+      name: faker.lorem.sentence(2)
+    };
+  });
+
+  return product;
+};
+
 const getProducts = length => {
   const commerce = faker.commerce;
 
@@ -26,7 +41,12 @@ const getProducts = length => {
 
 const getAsyncProducts = async length => {
   await sleep(1000);
-  return getProducts(length);
+  return getProduct(length);
 };
 
-export { getProducts, getAsyncProducts };
+const getAsyncProduct = async id => {
+  await sleep(1000);
+  return getProducts(id);
+};
+
+export { getProduct, getAsyncProduct, getProducts, getAsyncProducts };

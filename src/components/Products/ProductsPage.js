@@ -11,7 +11,7 @@ class ProductsPage extends Component {
 
   async componentDidMount() {
     try {
-      const products = await getAsyncProducts(10);
+      const products = await getProducts(10);
       this.setState({ products, isLoading: false });
     } catch (e) {
       console.error(e);
