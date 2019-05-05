@@ -2,14 +2,15 @@ import faker from "faker";
 import sleep from "await-sleep";
 
 const getProduct = id => {
-  const commerce = faker.commerce;
+  const { lorem, image } = faker;
 
   const [basicProduct] = getProducts(1);
   const product = Object.assign({}, basicProduct);
+
   product.images = [...Array(5)].map(() => {
     return {
-      image: faker.image.image(),
-      name: faker.lorem.sentence(2)
+      image: image.image(),
+      name: lorem.sentence(2)
     };
   });
 
@@ -17,22 +18,22 @@ const getProduct = id => {
 };
 
 const getProducts = length => {
-  const commerce = faker.commerce;
+  const { commerce, internet, lorem, random, address, image } = faker;
 
   const products = [...Array(length)].map(() => {
     return {
-      productId: faker.random.number().toString(),
+      productId: random.number().toString(),
       name: commerce.productName(),
       category: commerce.department(),
-      image: faker.image.image(),
-      shortDescription: faker.lorem.words(10),
-      fullDescription: faker.lorem.sentence(50),
+      image: image.image(),
+      shortDescription: lorem.words(10),
+      fullDescription: lorem.sentence(50),
       color: commerce.color(),
-      email: faker.internet.email(),
-      website: faker.internet.url(),
-      address: `${faker.address.streetAddress()}, ${faker.address.city()}`,
+      email: internet.email(),
+      website: internet.url(),
+      address: `${address.streetAddress()}, ${address.city()}`,
       price: commerce.price(10, 100, 2, "$"),
-      inStock: faker.random.number({ min: 10, max: 50 })
+      inStock: random.number({ min: 10, max: 50 })
     };
   });
 
