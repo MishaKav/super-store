@@ -42,12 +42,12 @@ const getProducts = length => {
 
 const getAsyncProducts = async length => {
   await sleep(1000);
-  return getProduct(length);
+  return getProducts(length);
 };
 
 const getAsyncProduct = async id => {
   await sleep(1000);
-  return getProducts(id);
+  return getProduct(id);
 };
 
 export { getProduct, getAsyncProduct, getProducts, getAsyncProducts };

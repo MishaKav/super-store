@@ -1,9 +1,17 @@
 import React from "react";
 import { Card, Empty, Statistic } from "antd";
-import { Redirect, NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 function Product(props) {
-  const { productId, name, image, inStock, price, shortDescription } = props;
+  const {
+    productId,
+    name,
+    image,
+    inStock,
+    price,
+    shortDescription,
+    history
+  } = props;
 
   if (!productId) {
     return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
@@ -13,7 +21,7 @@ function Product(props) {
     <>
       <Card
         hoverable
-        onClick={() => <Redirect to={`/products/${productId}`} />}
+        onClick={() => history.push(`/products/${productId}`)}
         title={name}
         cover={<img alt={name} src={image} />}
         actions={[
@@ -25,11 +33,10 @@ function Product(props) {
           <Statistic title="Availbale" value={inStock} />
         ]}
       >
-        <NavLink to={`/products/${productId}`}>{name}</NavLink>
         <Card.Meta description={shortDescription} />
       </Card>
     </>
   );
 }
 
-export default Product;
+export default withRouter(Product);

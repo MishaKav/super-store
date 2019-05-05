@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getProducts, getAsyncProducts } from "../../api/productsApi";
+import { getAsyncProducts } from "../../api/productsApi";
 import { Spin, Row, Col, Statistic } from "antd";
 import ProductsList from "./ProductsList";
 import FilterProducts from "./FilterProducts";
@@ -40,7 +40,7 @@ class ProductsPage extends Component {
 
   async componentDidMount() {
     try {
-      const products = await getProducts(10);
+      const products = await getAsyncProducts(10);
       this.setState({ products, isLoading: false }, () =>
         this.filterProducts(this.state.filterText)
       );
@@ -67,11 +67,7 @@ class ProductsPage extends Component {
           </Col>
         </Row>
 
-        <Row>
-          <Col span={24}>
-            <ProductsList products={filtredProducts} />
-          </Col>
-        </Row>
+        <ProductsList products={filtredProducts} />
       </Spin>
     );
   }

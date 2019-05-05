@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Carousel, PageHeader } from "antd";
-import { getProduct, getAsyncProduct } from "../../api/productsApi";
-import { Spin, Empty } from "antd";
-import { Redirect } from "react-router-dom";
+import { getAsyncProduct } from "../../api/productsApi";
+import { Spin, Empty, Tabs, Rate } from "antd";
+import { withRouter } from "react-router-dom";
 
 class ProductDetails extends Component {
   state = {
@@ -12,7 +12,7 @@ class ProductDetails extends Component {
 
   async componentDidMount() {
     try {
-      const product = await getProduct();
+      const product = await getAsyncProduct();
       this.setState({ product, isLoading: false });
     } catch (e) {
       console.error(e);
@@ -34,28 +34,46 @@ class ProductDetails extends Component {
     return (
       <>
         <PageHeader
-          onBack={() => <Redirect to="/products" />}
+          onBack={() => this.props.history.push("/products")}
           title={product.name}
           subTitle={product.price}
         />
 
-        <Carousel autoplay>
-          {product &&
-            product.images.map(i => {
-              return (
-                <div key={i.name}>
-                  <h3>{i.name}</h3>
-                </div>
-              );
-            })}
-        </Carousel>
-
-        <div>
-          <pre>{JSON.stringify(product, null, 2)}</pre>
+        <div style={{ width: "640px" }}>
+          <Carousel infinite autoplay>
+            {product &&
+              product.images.map(i => {
+                return (
+                  <div key={i.name}>
+                    <img alt={i.name} src={i.image} />
+                  </div>
+                );
+              })}
+          </Carousel>
         </div>
+
+        <Tabs defaultActiveKey="1">
+          <Tabs.TabPane tab="Description" key="1">
+            {product.fullDescription}
+          </Tabs.TabPane>
+          
+          <Tabs.TabPane tab="Specs" key="2">
+            <div>
+              <pre>{JSON.stringify(product, null, 2)}</pre>
+            </div>
+          </Tabs.TabPane>
+
+          <Tabs.TabPane tab="Shipping" key="3">
+            Shipping
+          </Tabs.TabPane>
+
+          <Tabs.TabPane tab="Reviews" key="4">
+            <Rate allowHalf defaultValue={2.5} />
+          </Tabs.TabPane>
+        </Tabs>
       </>
     );
   }
 }
 
-export default ProductDetails;
+export default withRouter(ProductDetails);
