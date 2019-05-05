@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Empty, Statistic } from "antd";
+import { Card, Empty, Statistic, Typography } from "antd";
 import { withRouter } from "react-router-dom";
 
 function Product(props) {
@@ -17,12 +17,17 @@ function Product(props) {
     return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
   }
 
+  const cardTitle = (
+    <Typography.Text onClick={() => history.push(`/products/${productId}`)}>
+      {name}
+    </Typography.Text>
+  );
+
   return (
     <>
       <Card
         hoverable
-        onClick={() => history.push(`/products/${productId}`)}
-        title={name}
+        title={cardTitle}
         cover={<img alt={name} src={image} />}
         actions={[
           <Statistic
