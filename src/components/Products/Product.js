@@ -2,6 +2,8 @@ import React from "react";
 import { Card, Empty, Statistic, Typography } from "antd";
 import { withRouter } from "react-router-dom";
 
+const { Text } = Typography;
+
 function Product(props) {
   const {
     productId,
@@ -18,9 +20,9 @@ function Product(props) {
   }
 
   const cardTitle = (
-    <Typography.Text onClick={() => history.push(`/products/${productId}`)}>
+    <Text onClick={() => history.push(`/products/${productId}/description`)}>
       {name}
-    </Typography.Text>
+    </Text>
   );
 
   return (

@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import { Carousel, PageHeader } from "antd";
+import { Route } from "react-router-dom";
+import { PageHeader } from "antd";
 import { getAsyncProduct } from "../../api/productsApi";
-import { Spin, Empty, Tabs, Rate } from "antd";
+import { Spin, Empty, Tabs, Timeline } from "antd";
 import { withRouter } from "react-router-dom";
+import ProductReviewList from "./ProductReviewList";
+import ProductGallery from "./ProductGallery";
+import ProductShipping from "./ProductShipping";
 
 class ProductDetails extends Component {
   state = {
@@ -12,7 +16,9 @@ class ProductDetails extends Component {
 
   async componentDidMount() {
     try {
-      const product = await getAsyncProduct();
+      const { match } = this.props;
+      const { productId } = match.params;
+      const product = await getAsyncProduct(productId);
       this.setState({ product, isLoading: false });
     } catch (e) {
       console.error(e);
@@ -31,45 +37,57 @@ class ProductDetails extends Component {
       return <Spin spinning={isLoading} tip="Loading product details" />;
     }
 
+    const onTabChange = key => {
+      const { history } = this.props;
+      history.push(key);
+    };
+
+    const { reviews, images, shipping } = product;
+    const { match, location, history } = this.props;
+
+    const tabsData = [
+      {
+        tab: "Description",
+        key: `${match.url}/description`,
+        component: () => <>{product.fullDescription}</>
+      },
+      {
+        tab: "Specs",
+        key: `${match.url}/specs`,
+        component: () => <pre>{JSON.stringify(product, null, 2)}</pre>
+      },
+      {
+        tab: "Shipping",
+        key: `${match.url}/shipping`,
+        component: rp => <ProductShipping shipping={shipping} {...rp} />
+      },
+      {
+        tab: "Reviews",
+        key: `${match.url}/reviews`,
+        component: rp => <ProductReviewList reviews={reviews} {...rp} />
+      }
+    ];
+
     return (
       <>
         <PageHeader
-          onBack={() => this.props.history.push("/products")}
+          onBack={() => history.push("/products")}
           title={product.name}
           subTitle={product.price}
         />
 
-        <div style={{ width: "640px" }}>
-          <Carousel infinite autoplay>
-            {product &&
-              product.images.map(i => {
-                return (
-                  <div key={i.name}>
-                    <img alt={i.name} src={i.image} />
-                  </div>
-                );
-              })}
-          </Carousel>
-        </div>
+        <ProductGallery images={images} />
 
-        <Tabs defaultActiveKey="1">
-          <Tabs.TabPane tab="Description" key="1">
-            {product.fullDescription}
-          </Tabs.TabPane>
-          
-          <Tabs.TabPane tab="Specs" key="2">
-            <div>
-              <pre>{JSON.stringify(product, null, 2)}</pre>
-            </div>
-          </Tabs.TabPane>
-
-          <Tabs.TabPane tab="Shipping" key="3">
-            Shipping
-          </Tabs.TabPane>
-
-          <Tabs.TabPane tab="Reviews" key="4">
-            <Rate allowHalf defaultValue={2.5} />
-          </Tabs.TabPane>
+        <Tabs defaultActiveKey={location.pathname} onChange={onTabChange}>
+          {tabsData.map(t => (
+            <Tabs.TabPane tab={t.tab} key={t.key}>
+              <Route
+                exact
+                path={`${match.url}/:section`}
+                render={t.component}
+              />
+            </Tabs.TabPane>
+          ))}
         </Tabs>
       </>
     );
