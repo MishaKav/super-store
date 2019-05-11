@@ -3,7 +3,7 @@
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 - Simple ui via [Ant Design](https://ant.design/)
 - All sample data generated with [faker.js](https://www.npmjs.com/package/faker)
-- Features [See the changelog](CHNAGELOG.md)
+- Features [See the changelog](CHANGELOG.md)
 
 ## Setup Development Machine
 
