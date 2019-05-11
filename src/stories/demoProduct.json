@@ -1,0 +1,77 @@
+{
+  "productId": "55572",
+  "name": "Licensed Concrete Pizza",
+  "category": "Automotive",
+  "image": "http://lorempixel.com/640/480/cats",
+  "shortDescription": "omnis quia et vel corporis autem architecto eum amet ea",
+  "fullDescription": "Qui exercitationem mollitia optio unde blanditiis veniam nulla quo aspernatur et recusandae modi necessitatibus aliquam sit ut illo est distinctio totam ut in placeat minima commodi sit ducimus deserunt impedit consequatur sit dolore perferendis adipisci dolorem et libero nemo qui labore error eos sed porro fuga omnis in dolor omnis.",
+  "color": "grey",
+  "email": "Elizabeth_Luettgen@hotmail.com",
+  "website": "http://kody.info",
+  "address": "8321 McGlynn Union, Darienside",
+  "price": "$83.00",
+  "inStock": 38,
+  "images": [
+    {
+      "image": "http://lorempixel.com/640/480/transport",
+      "name": "Sed doloremque."
+    },
+    {
+      "image": "http://lorempixel.com/640/480/sports",
+      "name": "Accusamus aut."
+    },
+    {
+      "image": "http://lorempixel.com/640/480/transport",
+      "name": "Amet qui."
+    }
+  ],
+  "reviews": [
+    {
+      "reviewId": "0712b715-b3c2-4cac-92ea-44f25d2d97cd",
+      "name": "Chaya Kuhn",
+      "rating": 2.5,
+      "date": "2019-04-13T01:11:41.032Z",
+      "content": "Architecto sed ut provident voluptas quia natus doloribus quas."
+    },
+    {
+      "reviewId": "5d9a88b4-1ffa-4b4e-982e-c3ee59e0d4ff",
+      "name": "Judah West",
+      "rating": 3.5,
+      "date": "2018-11-29T01:38:33.535Z",
+      "content": "Similique similique officiis et voluptas beatae aut consequatur."
+    },
+    {
+      "reviewId": "45a44494-3049-428a-ad2e-fc3d25b128d2",
+      "name": "Alessia Turner",
+      "rating": 5,
+      "date": "2018-12-27T06:53:33.894Z",
+      "content": "Atque dolor nobis eveniet totam."
+    }
+  ],
+  "shipping": [
+    {
+      "shippingId": "ed8086e8-f7e7-47e1-854b-ff3889ac81f3",
+      "name": "Accusantium repellendus.",
+      "date": "2019-03-29T12:25:20.386Z",
+      "content": "Dolore vitae nesciunt est soluta reiciendis quae expedita ab."
+    },
+    {
+      "shippingId": "17a74985-8c2a-4e97-a274-d43b870102d2",
+      "name": "Natus modi.",
+      "date": "2019-01-30T08:43:50.644Z",
+      "content": "Eos repellat pariatur quaerat sed."
+    },
+    {
+      "shippingId": "67445971-193e-432e-b0c9-5f8aba588f5c",
+      "name": "Voluptate vel.",
+      "date": "2019-04-15T18:56:55.890Z",
+      "content": "Reprehenderit explicabo quae officiis numquam."
+    },
+    {
+      "shippingId": "8540b757-6cc5-4c5e-b895-b4d9f7a16a52",
+      "name": "Voluptatum minus.",
+      "date": "2018-09-20T19:51:31.492Z",
+      "content": "Fuga quo et assumenda."
+    }
+  ]
+}

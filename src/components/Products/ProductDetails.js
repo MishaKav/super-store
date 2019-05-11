@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { PageHeader } from "antd";
 import { getAsyncProduct } from "../../api/productsApi";
-import { Spin, Empty, Tabs, Timeline } from "antd";
+import { Spin, Empty, Tabs } from "antd";
 import { withRouter } from "react-router-dom";
 import ProductReviewList from "./ProductReviewList";
 import ProductGallery from "./ProductGallery";
