@@ -4,7 +4,7 @@ import ProductReview from "./ProductReview";
 
 function ProductReviewList(props) {
   const { reviews } = props;
-console.log(props)
+
   if (!reviews || !reviews.length) {
     return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
   }
