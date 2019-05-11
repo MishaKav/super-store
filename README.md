@@ -3,10 +3,7 @@
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 - Simple ui via [Ant Design](https://ant.design/)
 - All sample data generated with [faker.js](https://www.npmjs.com/package/faker)
-- Features
-  - Display product list
-  - Filter products by name or description
-  - Display basic products details (gallery and tabs)
+- Features [See the changelog](CHNAGELOG.md)
 
 ## Setup Development Machine
 
