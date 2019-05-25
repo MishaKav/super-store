@@ -9,6 +9,7 @@ import ProductDetails from "./Products/ProductDetails";
 import Footer from "./Layout/Footer";
 import Header from "./Layout/Header";
 import Breadcrumbs from "./Layout/Breadcrumbs";
+import AuthRoute from "./AuthRoute";
 import Auth from "../Auth/Auth.js";
 import "antd/dist/antd.css";
 import "./App.css";
@@ -30,10 +31,10 @@ function App(props) {
         <Content className="content">
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/products" component={ProductsPage} />
             <Route path="/callback" component={CallbackPage} />
-            <Route path="/profile" component={ProfilePage} />
-            <Route path="/products/:productId" component={ProductDetails} />
+            <AuthRoute exact path="/products" component={ProductsPage} />
+            <AuthRoute path="/profile" component={ProfilePage} />
+            <AuthRoute path="/products/:productId" component={ProductDetails} />
           </Switch>
         </Content>
       </Content>

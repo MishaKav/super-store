@@ -12,12 +12,18 @@ function MenuComponent() {
           Home
         </NavLink>
       </Menu.Item>
-      <Menu.Item key="products">
-        <NavLink to="/products">Products</NavLink>
-      </Menu.Item>
-      <Menu.Item key="profile">
-        <NavLink to="/profile">Profile</NavLink>
-      </Menu.Item>
+
+      {Auth.isAuthenticated() && (
+        <Menu.Item key="products">
+          <NavLink to="/products">Products</NavLink>
+        </Menu.Item>
+      )}
+
+      {Auth.isAuthenticated() && (
+        <Menu.Item key="profile">
+          <NavLink to="/profile">Profile</NavLink>
+        </Menu.Item>
+      )}
       <Menu.Item style={{ float: "right" }}>
         {!Auth.isAuthenticated() && (
           <Button type="primary" onClick={() => Auth.login()}>

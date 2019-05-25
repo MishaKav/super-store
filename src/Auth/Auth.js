@@ -21,7 +21,7 @@ class Auth {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        this.history.push("/home");
+        this.history.push("/products");
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
@@ -47,7 +47,7 @@ class Auth {
     localStorage.setItem("id_token", authResult.idToken);
     localStorage.setItem("expires_at", expiresAt);
 
-    this.history.push("/home");
+    this.history.push("/products");
   };
 
   logout = () => {
