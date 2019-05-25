@@ -1,0 +1,13 @@
+{
+  "sub": "google-oauth2|109085248587388961069",
+  "given_name": "Misha",
+  "family_name": "Kav",
+  "nickname": "misha.kav",
+  "name": "Misha Kav",
+  "picture": "https://lh6.googleusercontent.com/-fYKLNU2_N8o/AAAAAAAAAAI/AAAAAAAAj3U/K1uJz33USq4/photo.jpg",
+  "locale": "en",
+  "updated_at": "2019-05-25T16:09:24.312Z",
+  "email": "misha.kav@gmail.com",
+  "email_verified": true,
+  "https://securenative-stg.com/roles": ["user"]
+}
