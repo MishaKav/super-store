@@ -3,9 +3,16 @@ import { Menu, Icon, Button } from "antd";
 import { NavLink } from "react-router-dom";
 import Auth from "../../Auth/Auth";
 
-function MenuComponent() {
+function MenuComponent(props) {
+  const { color } = props;
+
   return (
-    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["home"]}>
+    <Menu
+      theme="dark"
+      mode="horizontal"
+      defaultSelectedKeys={["home"]}
+      style={{ background: color }}
+    >
       <Menu.Item key="home">
         <NavLink to="/">
           <Icon type="home" />
